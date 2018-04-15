@@ -1,0 +1,20 @@
+<div class="product" [style.background-image]="'url(../assets/img/'+background+')'">
+  <div class="name-wrapper">
+    <span class="name">
+    {{name}}
+    </span>
+    <button type="button" class="btn btn-success" (click)="addToBasket()">+</button>
+  </div>
+  <div class="cost-wrapper">
+    <div class="helper">Koszt</div>
+    <div class="cost">
+      {{cost / 100 | currency}}
+    </div>
+  </div>
+  <div class="amount-wrapper">
+    <div class="helper">Ilość</div>
+    <div class="amount">
+      {{amount}}
+    </div>
+  </div>
+</div>

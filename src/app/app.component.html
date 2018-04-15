@@ -1,0 +1,58 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<header>
+  <div class="navbar navbar-dark bg-dark box-shadow">
+    <div class="container d-flex justify-content-between">
+      <a href="#" class="navbar-brand d-flex align-items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+        <strong>Owoce</strong>
+      </a>
+      <app-custom-filter (filterListChange)="filterListHandler($event)"></app-custom-filter>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-right mt-1">
+        <button type="button" class="btn btn-info" *ngIf="isFiltering" (click)="clearFilter()">Wyczyść filtrowanie</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col col-md-3 p-0" *ngFor="let item of products">
+        <app-product [name]="item.name" [background]="item.background" [cost]="item.cost" [amount]="item.amount" (urBasketChange)="urBasketHandler($event)"></app-product>
+      </div>
+    </div>
+    <h3 class="mt-3">Twój koszyk</h3>
+    <div class="row" *ngIf="basket.length == 0" >
+      <div class="alert alert-warning w-100">Twój koszyk jest pusty</div>
+    </div>
+    <div class="row" *ngIf="basket.length>0">
+      <div class="col col-md-12 table-header">
+        <div class="row">
+          <div class="col-md-8">
+            <div class="name">
+              Nazwa
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="cost">
+              Koszt
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="bought">
+              Ilość
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col col-md-12" *ngFor="let item of basket">
+        <app-basket-item [name]="item.name" [cost]="item.cost" [bought]="item.bought" (updateBought)="updateBought(item)"></app-basket-item>
+      </div>
+      <div class="col col-md-12 text-right">
+        Suma : {{totalCost / 100 | currency }}
+      </div>
+    </div>
+  </div>
+</main>

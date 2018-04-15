@@ -1,0 +1,17 @@
+<div class="row basket-item">
+  <div class="col-md-8">
+    <div class="name">
+      {{name}}
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="cost">
+      {{cost/100 | currency}}
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="bought">
+      <input type="number" class="form-control" [(ngModel)]="bought" placeholder="Ilość" (input)="amountUpdate()">
+    </div>
+  </div>
+</div>
