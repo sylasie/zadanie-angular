@@ -27,6 +27,19 @@ export class BasketItemComponent implements OnInit {
       'bought' : this.bought,
     };
 
+    console.log('wysylany item', newItem);
     this.updateBought.emit(newItem);
+  }
+
+  changeBought(change) {
+    if (change === 1) {
+      this.bought++;
+      this.amountUpdate();
+    } else {
+      if (this.bought > 1) {
+        this.bought--;
+        this.amountUpdate();
+      }
+    }
   }
 }

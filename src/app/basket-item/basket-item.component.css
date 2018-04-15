@@ -6,3 +6,17 @@
 .basket-item .name {
   text-transform: uppercase;
 }
+
+.basket-item .bought {
+  display:flex;
+  flex-direction: row;
+}
+
+.basket-item .bought .counter {
+  text-align: center;
+  /*border-radius: 0;*/
+  width:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

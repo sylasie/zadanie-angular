@@ -11,7 +11,9 @@
   </div>
   <div class="col-md-2">
     <div class="bought">
-      <input type="number" class="form-control" [(ngModel)]="bought" placeholder="Ilość" (input)="amountUpdate()">
+      <button class="btn btn-danger" (click)="changeBought(0)">-</button>
+      <div class="counter"> {{bought}} </div>
+      <button class="btn btn-success" (click)="changeBought(1)">+</button>
     </div>
   </div>
 </div>

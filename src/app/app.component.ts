@@ -44,6 +44,30 @@ export class AppComponent {
       'background' : '4.jpg',
       'cost' : 560,
       'amount' : 25
+    },
+    {
+      'name' : 'jagody',
+      'background' : '5.jpg',
+      'cost' : 165,
+      'amount' : 360
+    },
+    {
+      'name' : 'maliny',
+      'background' : '6.jpg',
+      'cost' : 135,
+      'amount' : 58
+    },
+    {
+      'name' : 'mandarynki',
+      'background' : '7.jpg',
+      'cost' : 65,
+      'amount' : 70
+    },
+    {
+      'name' : 'gruszki',
+      'background' : '8.jpg',
+      'cost' : 90,
+      'amount' : 140
     }
   ];
 
@@ -87,17 +111,12 @@ export class AppComponent {
     }
   }
 
-  public updateBought(item) {
-    if (!item.bought || item.bought === 0) {
-
-    } else {
+  public updateBoughtHandler(item) {
       for (let i = 0; i < this.basket.length; i++) {
         if (this.basket[i].name === item.name) {
           this.basket[i].bought = item.bought;
         }
       }
-    }
-
     this.sumCost();
   }
 }

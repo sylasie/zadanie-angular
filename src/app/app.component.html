@@ -48,7 +48,7 @@
         </div>
       </div>
       <div class="col col-md-12" *ngFor="let item of basket">
-        <app-basket-item [name]="item.name" [cost]="item.cost" [bought]="item.bought" (updateBought)="updateBought(item)"></app-basket-item>
+        <app-basket-item [name]="item.name" [cost]="item.cost" [bought]="item.bought" (updateBought)="updateBoughtHandler($event)"></app-basket-item>
       </div>
       <div class="col col-md-12 text-right">
         Suma : {{totalCost / 100 | currency }}
